@@ -8,17 +8,25 @@ public class Ai {
 
 	// AIの動作関数
 	public static void autoPush(int c){
-		// 左上から置ける場所を探してあったら置く(なかったらスキップ)
+		// 一番多くひっくりかえせる場所に配置
+		int max = 0, tmpX = 0, tmpY = 0;
+		boolean frag = false;
+
 		for (int i = 0; i < Othello.MAP_SIZE; i = i + 1){
 			for (int j = 0; j < Othello.MAP_SIZE; j = j + 1){
 				if (Othello.fPush(i, j, c)){
-					Othello.push(i, j, c);
-					turn = false;
-					x = i;
-					y = j;
-					return;
+					frag = true;
+					if (max <= Othello.calcPush(i, j, c)){
+						max = Othello.calcPush(i, j, c);
+						tmpX = i;
+						tmpY = j;
+					}
 				}
 			}
+		}
+
+		if (frag){
+			Othello.push(tmpX, tmpY, c);
 		}
 
 		turn = false;
