@@ -1,6 +1,6 @@
 public class WindowData {
-	// Window setting
+	// ウィンドウの設定定数
 	public static final int WIDTH = 1280, HEIGHT = 720, INDEX_FPS = 60;
-	// Window fps management
+	// FPSの管理用変数
 	public static int nowFps = 0, oldFps = 0;
 }
