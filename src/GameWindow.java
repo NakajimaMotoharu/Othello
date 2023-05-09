@@ -3,6 +3,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GameWindow extends JFrame implements KeyListener{
+	// メインウィンドウコンストラクタ
 	public GameWindow(String title, int width, int height){
 		super(title);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -13,11 +14,13 @@ public class GameWindow extends JFrame implements KeyListener{
 		addKeyListener(this);
 	}
 
+	// 空オーバーライド
 	@Override
 	public void keyTyped(KeyEvent e){
 		// null
 	}
 
+	// キー押された時の処理
 	@Override
 	public void keyPressed(KeyEvent e){
 		switch (e.getKeyCode()){
@@ -56,6 +59,7 @@ public class GameWindow extends JFrame implements KeyListener{
 		}
 	}
 
+	// キー離された時の処理
 	@Override
 	public void keyReleased(KeyEvent e){
 		switch (e.getKeyCode()){
