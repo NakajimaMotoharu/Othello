@@ -3,15 +3,15 @@ import java.util.TimerTask;
 
 public class Main {
 	public static void main(String[] args) {
-		// init
+		// オセロクラス初期設定
 		Othello.init();
 
-		// create window
+		// ウィンドウ作成
 		GameWindow gw = new GameWindow("Othello", WindowData.WIDTH, WindowData.HEIGHT);
 		gw.add(new Draw());
 		gw.setVisible(true);
 
-		// frame ctrl
+		// フレーム毎処理
 		Timer reFrame = new Timer(false);
 		TimerTask frameTask = new TimerTask() {
 			@Override
@@ -26,7 +26,7 @@ public class Main {
 		};
 		reFrame.schedule(frameTask, 0, 1000 / WindowData.INDEX_FPS);
 
-		// fps ctrl
+		// FPSの更新
 		Timer clockFps = new Timer(false);
 		TimerTask clockTask = new TimerTask() {
 			@Override
