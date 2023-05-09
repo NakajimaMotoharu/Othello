@@ -27,6 +27,8 @@ public class Ai {
 
 		if (frag){
 			Othello.push(tmpX, tmpY, c);
+			x = tmpX;
+			y = tmpY;
 		}
 
 		turn = false;
