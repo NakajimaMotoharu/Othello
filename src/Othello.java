@@ -302,4 +302,52 @@ public class Othello {
 
 		return true;
 	}
+
+	// マップ座標(x, y)に置いた際いくつ得られるか
+	public static int calcPush(int x, int y, int c){
+		int count = 0, nc = makeNc(c);
+
+		if (search(x, y, c, 0)){
+			for (int i = 1; getMap(x, y - i) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+		if (search(x, y, c, 1)){
+			for (int i = 1; getMap(x + i, y - i) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+		if (search(x, y, c, 2)){
+			for (int i = 1; getMap(x + i, y) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+		if (search(x, y, c, 3)){
+			for (int i = 1; getMap(x + i, y + i) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+		if (search(x, y, c, 4)){
+			for (int i = 1; getMap(x, y + i) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+		if (search(x, y, c, 5)){
+			for (int i = 1; getMap(x - i, y + i) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+		if (search(x, y, c, 6)){
+			for (int i = 1; getMap(x - i, y) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+		if (search(x, y, c, 7)){
+			for (int i = 1; getMap(x - i, y - i) == nc; i = i + 1){
+				count = count + 1;
+			}
+		}
+
+		return count;
+	}
 }
